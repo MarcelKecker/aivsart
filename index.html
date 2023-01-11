@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI vs Art</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"></style>
+</head>
+
+<body>
+    <div class="artLeft art">
+        <div class="humanArtInfosLeft humanArtInfos" id="humanArtInfosLeft"hidden>
+            <div class="infosPlainBackround">
+                    <div id="artistInfoLeftName" class="artistInfoLeftName artistInfoContent"></div>
+                    <div id="artistInfoLeftArtist" class="artistInfoLeftArtist artistInfoContent"></div>
+                    <div id="artistInfoLeftPriceSold" class="artistInfoLeftPriceSold artistInfoContent"></div>
+            </div>
+            <div class="infosGradient"></div>
+        </div>
+        <img class="wrong wrongLeft" id="wrongLeft" src="wrong.png">
+        <img class="correct correctLeft" id="correctLeft" src="correct.png">
+    </div>
+    <div class="artLeft art">
+        <img onclick="artKlicked(this)" class="imgLeft img" id="imgLeft">
+    </div>
+    <div class="artRight art">
+        <div class="humanArtInfosRight humanArtInfos" id="humanArtInfosRight"hidden>
+            <div class="infosPlainBackround"> 
+                    <div id="artistInfoRightName" class="artistInfoRightName artistInfoContent"></div>
+                    <div id="artistInfoRightArtist" class="artistInfoRightArtist artistInfoContent"></div>
+                    <div id="artistInfoRightPriceSold" class="artistInfoRightPriceSold artistInfoContent"></div>
+            </div>
+            <div class="infosGradient"> </div>
+        </div>
+        <img class="wrong wrongRight" id="wrongRight" src="wrong.png">
+        <img class="correct correctRight" id="correctRight" src="correct.png">
+    </div>
+    <div class="artRight art">
+        <img onclick="artKlicked(this)" class="imgRight img" id="imgRight"></picture>
+    </div>
+    <button onclick="createLvl()" id="nextRound" class="nextRound" disabled>
+        next Round
+    </button>
+    <div class="score text" id="score">Score: 0</div>
+    <p class = "textTop text">
+        AI has made some crazy artworks, but how good have they become? <br>
+        Do you even recognize art made by AI? <br>
+        <b>Click on the one you think was mady ba a human</b>
+    </p>
+    <p class = "vs text">
+        vs
+    </p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="artworks.js"> </script>
+    <script src="index.js"> </script>
+</body>
+
+</html>
+
