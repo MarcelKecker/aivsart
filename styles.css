@@ -5,14 +5,10 @@
     z-index: 0;
 }
 .art {
-    background-color: wheat;
     position: absolute;
     height: 640px;
     width: 360px;
     top: 20%;
-    padding: 0;
-    margin: 0;
-    
 }
 .artLeft{
     left: 25%
@@ -66,19 +62,25 @@
     z-index: 2;
     top:80%;
 }
-.correct{
-    position: relative;
-    height: 100%;
-    width: 100%;
-    top: -120%;
-    z-index: 3;
+.result {
+    position: absolute;
+    height: 640px;
+    width: 360px;
+    top: 20%;
+    overflow: hidden;
 }
-.wrong {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    top: -120%;
-    z-index: 4;
+.resultLeft {
+    left: 25%
+}
+.resultRight {
+    right: 25%
+}
+.correct, .wrong{
+    position: absolute;
+    height: 640px;
+    width: 360px;
+    top: -20%;
+    z-index: 3;
 }
 .nextRound {
     font-size: 40px;

@@ -95,67 +95,46 @@ function passeScoreAn(roundWon) {
 
 function roundLost(art) {
     showArtistInfos(false, art);
-    animateWrongSreen(true)
+    animateWrongSreen(getPosition(art))
     passeScoreAn(false)
 }
 
 function roundWon(art) {
     showArtistInfos(true, art);
-    animateCorrectSreen(getPosition(art) === "Left");
+    animateCorrectSreen(getPosition(art));
     passeScoreAn(true)
 }
 
-function animateCorrectSreen(isLeft) {
-    let elementCorrectScreen
-    if (isLeft) {
-        elementCorrectScreen = document.getElementById("correctLeft")
-    } else {
-        elementCorrectScreen = document.getElementById("correctRight")
-    } 
+function animateCorrectSreen(position) {
+    let elementCorrectScreen = document.getElementById("correct" + position)
     elementCorrectScreen.hidden = false;
     gsap.fromTo(elementCorrectScreen, {y: 0}, {y: 128, duration: 0.5})
 }
 
-function animateWrongSreen(isLeft) {
-    let elementWrongScreen
-    let element2
-    if (isLeft) {
-        elementWrongScreen = document.getElementById("wrongLeft")
-        element2 = document.getElementById("wrongRight")
-    } else {
-        elementWrongScreen = document.getElementById("wrongRight")
-        element2 = document.getElementById("wrongLeft")
-    } 
+function animateWrongSreen(position) {
+    let elementWrongScreen = document.getElementById("wrong" + position)
     elementWrongScreen.hidden = false;
-    element2.hidden = false
-    console.log(elementWrongScreen)
+    console.log(elementWrongScreen.hidden)
     gsap.fromTo(elementWrongScreen, {y: 0}, {y: 128, duration: 0.5})
-    gsap.fromTo(element2, {y: 0}, {y: 128, duration: 0.5})
 }
 
-function animateArtistInfo(isLeft) {
-    let elementArtistInfo
-    if (isLeft) {
-        elementArtistInfo = document.getElementById("humanArtInfosLeft")
-    } else {
-        elementArtistInfo = document.getElementById("humanArtInfosRight")
-    }
+function animateArtistInfo(position) {
+    let elementArtistInfo = document.getElementById("humanArtInfos" + position)
     gsap.fromTo(elementArtistInfo, {opacity: 0}, {opacity: 1, duration: 1})
 }
 
 function showArtistInfos(roundWon, art) {
+    let position
     if ((getPosition(art) === "Left" && roundWon) || (getPosition(art) === "Right"&& !roundWon)) {
-        document.getElementById("humanArtInfosLeft").hidden = false;
-        document.getElementById("artistInfoLeftName").innerHTML = "Name: " + artworks[idIndex].name
-        document.getElementById("artistInfoLeftArtist").innerHTML = "Artist: " + artworks[idIndex].artist
-        document.getElementById("artistInfoLeftPriceSold").innerHTML = "Price Sold: " + artworks[idIndex].priceSold
-        animateArtistInfo(true)
-    } else if ((getPosition(art) === "Right"&& roundWon) || (getPosition(art) === "Left"&& !roundWon)) {
-        document.getElementById("humanArtInfosRight").hidden = false;
-        document.getElementById("artistInfoRightName").innerHTML = "Name: " + artworks[idIndex].name
-        document.getElementById("artistInfoRightArtist").innerHTML = "Artist: " + artworks[idIndex].artist
-        document.getElementById("artistInfoRightPriceSold").innerHTML = "Price Sold: " + artworks[idIndex].priceSold}
-        animateArtistInfo(false)
+        position = "Left"
+    } else {
+        position = "Right"
+    }
+    document.getElementById("humanArtInfos" + position).hidden = false;
+    document.getElementById("artistInfo" + position + "Name").innerHTML = "Name: " + artworks[idIndex].name
+    document.getElementById("artistInfo" + position + "Artist").innerHTML = "Artist: " + artworks[idIndex].artist
+    document.getElementById("artistInfo" + position + "PriceSold").innerHTML = "Price Sold: " + artworks[idIndex].priceSold
+    animateArtistInfo(position)
 }
 
 function artKlicked(art) {
