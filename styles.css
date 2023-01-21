@@ -23,9 +23,9 @@
 }
 .vs{
     position: absolute;
-    left: 50%;
+    left: 49%;
     top: 50%;
-    font-size: x-large;
+    font-size: 35px;
 }
 .textTop {
     position: absolute;
@@ -93,4 +93,10 @@
     position: absolute;
     bottom: 10%;
     left: 47%
+}
+.highScore {
+    font-size: 35px;
+    position: absolute;
+    bottom: 5%;
+    left: 45%
 }

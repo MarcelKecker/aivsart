@@ -1,4 +1,5 @@
 let score = 0
+let highScore = 0;
 let idIndex = 0
 class Art {
     position
@@ -90,7 +91,17 @@ function passeScoreAn(roundWon) {
         score = 0;
     }
     let scoreString = document.getElementById("score").innerHTML
-    document.getElementById("score").innerHTML = scoreString.replace(scoreString.charAt(7), score)
+    document.getElementById("score").innerHTML = "Score: " + score
+    passeHighScoreAn();
+}
+
+function passeHighScoreAn() {
+    if (score <= highScore) {
+        return;
+    }
+        highScore = score
+        document.getElementById("highScore").innerHTML = "Highscore: " + highScore
+    
 }
 
 function roundLost(art) {
@@ -114,7 +125,6 @@ function animateCorrectSreen(position) {
 function animateWrongSreen(position) {
     let elementWrongScreen = document.getElementById("wrong" + position)
     elementWrongScreen.hidden = false;
-    console.log(elementWrongScreen.hidden)
     gsap.fromTo(elementWrongScreen, {y: 0}, {y: 128, duration: 0.5})
 }
 
